@@ -21,11 +21,10 @@
                 />
             @endif
 
-            <div class="col-4 col-md-2 mt-2">
-                <button type="submit" class="btn btn-dark w-100">
-                    <x-icons.trigger/>
-                </button>
-            </div>
+            <button type="submit"
+                    class="inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white">
+                <x-icons.trigger class="text-gray-400"/>
+            </button>
         </div>
     </form>
 
