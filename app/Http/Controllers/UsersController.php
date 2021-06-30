@@ -8,9 +8,14 @@ use App\Support\Filter;
 
 class UsersController extends Controller
 {
-    public function index(UserIndexQuery $query, BladeTable $table)
+    public function __invoke(UserIndexQuery $query, BladeTable $table)
     {
-        return view('index', [
+        $view = 'bs-users';
+
+        if (config('blade-table.theme') === 'tailwind')
+            $view = 'tw-users';
+
+        return view($view, [
             'users' => $query->paginate(),
             'table' => $table
                 ->addFilter('state', 'Status', Filter::SELECT, [
