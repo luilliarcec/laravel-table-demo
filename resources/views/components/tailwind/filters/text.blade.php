@@ -1,6 +1,6 @@
 <input
     type="text"
-    class="focus:ring-1 focus:ring-gray-700 focus:border-gray-700 block w-full pr-10 text-sm border-gray-300 rounded-md"
+    class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md"
     name="{{ $name }}"
     value="{{ $value }}"
 >

@@ -1,5 +1,5 @@
 <div>
-    <form action="">
+    <form action="" class="mb-6">
         <div class="flex flex-wrap space-x-4 justify-end md:justify-between">
             @if($hasFilters())
                 <x-filters
