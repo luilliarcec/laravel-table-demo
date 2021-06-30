@@ -39,6 +39,8 @@
             </tbody>
         </table>
 
-        {{ $meta->links() }}
+        <div class="m-4">
+            {{ $meta->links() }}
+        </div>
     </x-table-wrapper>
 </div>
