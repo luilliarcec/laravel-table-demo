@@ -20,7 +20,7 @@ class UserFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
@@ -36,11 +36,25 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
+    public function unverified(): Factory
     {
         return $this->state(function (array $attributes) {
             return [
                 'email_verified_at' => null,
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the user is deleted.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function deleted(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'deleted_at' => $this->faker->dateTimeBetween('-2 years'),
             ];
         });
     }
