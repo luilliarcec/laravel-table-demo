@@ -13,3 +13,24 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+### Custom ###
+/.idea/*
+*.cache
+.php_cs.cache
+*.BACKUP
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+*.orig
+*.iws
+*.iml
+*.ipr
+_ide_helper.php
+.phpstorm.meta.php
+tools/php-cs-fixer/vendor
