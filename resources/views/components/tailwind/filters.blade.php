@@ -4,12 +4,11 @@
             type="button"
             class="w-full inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white"
             aria-expanded="false"
-            ref="button"
         >
-            <x-icons.filters/>
+            <x-icons.filters class="text-gray-400"/>
         </button>
 
-        <div ref="tooltip" class="absolute z-10" style="min-width: 280px">
+        <div class="absolute z-10" style="min-width: 280px">
             <div class="mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 @foreach($filters as $filter)
                     <div>
