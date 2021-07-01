@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('table.css') }}">
     <script src="{{ asset('table.js') }}" defer></script>
 
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -50,5 +53,18 @@
         </div>
     </main>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    const dateRanges = document.querySelectorAll('.filter-date-range');
+
+    dateRanges.forEach(e => flatpickr(e, {
+        mode: 'range'
+    }));
+
+    const dates = document.querySelectorAll('.filter-date');
+
+    dates.forEach(e => flatpickr(e))
+</script>
 </body>
 </html>
