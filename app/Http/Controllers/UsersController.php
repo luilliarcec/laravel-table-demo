@@ -22,6 +22,10 @@ class UsersController extends Controller
                     'active' => 'Active',
                     'inactive' => 'Inactive',
                 ])
+                ->addFilter('verified_check', 'Verified', Filter::CHECKBOX, [
+                    'verified' => 'Verified',
+                    'not_verified' => 'Not verified',
+                ])
                 ->addFilter('verified', 'Verified', Filter::SELECT_MULTIPLE, [
                     'verified' => 'Verified',
                     'not_verified' => 'Not verified',
