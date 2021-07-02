@@ -29,13 +29,13 @@
                                         name="columns[]"
                                         id="column_{{ $key }}"
                                         value="{{ $key }}"
-                                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+                                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer"
                                         {{ $column->enabled ? 'checked' : '' }}
                                     />
 
                                     <label
                                         for="column_{{ $key }}"
-                                        class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
+                                        class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 cursor-pointer">
                                     </label>
                                 </div>
                             </li>
