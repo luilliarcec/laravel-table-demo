@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Queries\UserIndexQuery;
-use App\Support\BladeTable;
-use App\Support\Filter;
+use Luilliarcec\LaravelTable\Support\BladeTable;
+use Luilliarcec\LaravelTable\Support\Filter;
 
 class UsersController extends Controller
 {
     public function __invoke(UserIndexQuery $query, BladeTable $table)
     {
-        $view = 'bs-users';
-
-        if (config('blade-table.theme') === 'tailwind')
-            $view = 'tw-users';
-
-        return view($view, [
+        // bs-users - tw-users
+        return view('tw-users', [
             'users' => $query->paginate(),
             'table' => $table
                 ->addFilter('state', 'Status', Filter::SELECT, [
