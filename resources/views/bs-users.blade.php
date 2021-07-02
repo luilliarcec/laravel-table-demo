@@ -17,6 +17,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <x-styles/>
 </head>
 <body>
 <div class="container mt-5">
@@ -51,5 +52,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous">
 </script>
+<x-scripts/>
 </body>
 </html>
