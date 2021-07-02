@@ -34,16 +34,32 @@
                     Id
                 </x-table::th>
 
-                <x-table::th column-key="name" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="name" class="border-gray-200" :sortable="true" :show="true">
                     Name
                 </x-table::th>
 
-                <x-table::th column-key="email" class="border-gray-200" :sortable="true" :show="true">
+                <x-table::th column-key="email" class="border-gray-200" :sortable="true">
                     Email
                 </x-table::th>
 
-                <x-table::th column-key="email_verified_at" class="border-gray-200">
+                <x-table::th column-key="language_developer" class="border-gray-200" :sortable="true">
+                    Language developer
+                </x-table::th>
+
+                <x-table::th column-key="email_verified_at" class="border-gray-200" :sortable="true">
                     Email verified at
+                </x-table::th>
+
+                <x-table::th column-key="deleted_at" class="border-gray-200" :sortable="true">
+                    Deleted?
+                </x-table::th>
+
+                <x-table::th column-key="created_at" class="border-gray-200" :sortable="true">
+                    Created at
+                </x-table::th>
+
+                <x-table::th column-key="updated_at" class="border-gray-200" :sortable="true">
+                    Updated at
                 </x-table::th>
             </tr>
         </x-slot>
@@ -55,16 +71,36 @@
                         {{ $user->id }}
                     </x-table::th>
 
-                    <x-table::td column-key="name">
+                    <x-table::td column-key="name" :show="true">
                         {{ $user->name }}
                     </x-table::td>
 
-                    <x-table::td column-key="email" :show="true">
+                    <x-table::td column-key="email">
                         {{ $user->email }}
+                    </x-table::td>
+
+                    <x-table::td column-key="language_developer">
+                        {{ $user->language_developer }}
                     </x-table::td>
 
                     <x-table::td column-key="email_verified_at">
                         {{ $user->email_verified_at->isoFormat('ll') }}
+                    </x-table::td>
+
+                    <x-table::td column-key="deleted_at">
+                        @if ($user->trashed())
+                            <span class="badge bg-danger">Deleted</span>
+                        @else
+                            <span class="badge bg-success">Active</span>
+                        @endif
+                    </x-table::td>
+
+                    <x-table::td column-key="created_at">
+                        {{ $user->created_at->isoFormat('ll') }}
+                    </x-table::td>
+
+                    <x-table::td column-key="updated_at">
+                        {{ $user->updated_at->isoFormat('ll') }}
                     </x-table::td>
                 </tr>
             @endforeach
