@@ -1,5 +1,5 @@
 <script>
-    function dropdown(event) {
-        event.stopPropagation();
-    }
+    $(document).on('click', '.keep-open', function (e) {
+        e.stopPropagation();
+    });
 </script>

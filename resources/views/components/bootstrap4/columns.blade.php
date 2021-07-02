@@ -10,7 +10,7 @@
             <x-icons.colums/>
         </button>
 
-        <ul class="dropdown-menu shadow py-0 mt-3" style="min-width: 220px">
+        <ul class="dropdown-menu keep-open shadow py-0 mt-3" style="min-width: 220px">
             @foreach($columns as $key => $column)
                 <li>
                     <div class="px-3 py-2">

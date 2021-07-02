@@ -10,7 +10,7 @@
             <x-icons.filters/>
         </button>
 
-        <ul class="dropdown-menu shadow py-0 mt-3" style="min-width: 280px">
+        <ul class="dropdown-menu keep-open shadow py-0 mt-3" style="min-width: 280px">
             @foreach($filters as $filter)
                 <li>
                     <div class="rounded-top px-0 py-0">
