@@ -36,6 +36,21 @@
                     </div>
                 </li>
             @endforeach
+
+            <li>
+                <div class="rounded-top px-0 py-0">
+                    <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top" style="font-size: 14px">
+                        {{ __('Filters') }}
+                    </p>
+
+                    <div class="p-2">
+                        <a class="text-secondary px-2"
+                           href="{{ request()->url() }}">
+                            {{ __('Clear filters') }}
+                        </a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
