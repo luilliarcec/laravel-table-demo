@@ -17,21 +17,20 @@ class UsersController extends Controller
         return view('bs-users', [
             'users' => $query->paginate(),
             'table' => $table
-                ->addFilter('state', 'Status', Filter::SELECT, [
-                    'active' => 'Active',
-                    'inactive' => 'Inactive',
-                ])
-                ->addFilter('verified_check', 'Verified', Filter::CHECKBOX, [
-                    'verified' => 'Verified',
-                    'not_verified' => 'Not verified',
-                ])
-                ->addFilter('verified', 'Verified', Filter::SELECT_MULTIPLE, [
-                    'verified' => 'Verified',
-                    'not_verified' => 'Not verified',
+                ->addFilter('trashed', 'Trahed', Filter::SELECT, [
+                    'without' => 'Only active',
+                    'only' => 'Only trashed',
                 ])
                 ->addFilter('name', 'Name', Filter::TEXT)
+                ->addFilter('language_developer', 'Language developer', Filter::CHECKBOX, [
+                    'php' => 'PHP',
+                    'python' => 'Python',
+                    'c-sharp' => 'C-Sharp',
+                    'javascript' => 'Javascript',
+                    'dart' => 'Dart',
+                ])
                 ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
-                ->addFilter('email_verified_at_range', 'Email Verified at range', Filter::DATE_RANGE)
+                ->addFilter('created_at', 'Created at', Filter::DATE_RANGE)
                 ->addColumn('email', 'Email')
                 ->addColumn('language_developer', 'Language developer')
                 ->addColumn('email_verified_at', 'Email verified at')

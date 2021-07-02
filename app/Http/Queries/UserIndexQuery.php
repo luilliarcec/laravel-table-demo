@@ -16,53 +16,38 @@ class UserIndexQuery extends QueryBuilder
 
         $this
             ->allowedFilters([
-                'name',
-                'email_verified_at',
-                $this->filterVerified(),
-                $this->filterEmailVerifiedAtRange(),
                 $this->globalSearch(),
-                $this->filterState(),
+                AllowedFilter::trashed(),
+                'name',
+                $this->filterLanguageDeveloper(),
+                'email_verified_at',
+                $this->filterCreatedAt(),
             ])
             ->allowedSorts([
                 'name',
-                'email'
+                'email',
+                'language_developer',
+                'email_verified_at',
+                'deleted_at',
+                'created_at',
+                'updated_at',
             ]);
     }
 
-
-    public function filterVerified(): AllowedFilter
+    public function filterLanguageDeveloper(): AllowedFilter
     {
-        return AllowedFilter::callback('verified', function ($query, $value) {
-            $query->where(function ($query) use ($value) {
-                $query->when(
-                    in_array('verified', $value),
-                    function ($query) { $query->whereNotNull('email_verified_at'); },
-                    function ($query) { $query->whereNull('email_verified_at'); },
-                );
-            });
+        return AllowedFilter::callback('language_developer', function ($query, $value) {
+            $query->whereIn('language_developer', $value);
         });
     }
 
-    public function filterEmailVerifiedAtRange(): AllowedFilter
+    public function filterCreatedAt(): AllowedFilter
     {
-        return AllowedFilter::callback('email_verified_at_range', function ($query, $value) {
+        return AllowedFilter::callback('created_at', function ($query, $value) {
             $value = Str::of($value)->explode(' to ');
 
-            $query->whereDate('email_verified_at', '>=', $value->first())
-                ->whereDate('email_verified_at', '<=', $value->last());
-        });
-    }
-
-    public function filterState(): AllowedFilter
-    {
-        return AllowedFilter::callback('state', function ($query, $value) {
-            $query->where(function ($query) use ($value) {
-                $query->when(
-                    $value == 'inactive',
-                    function ($query) { $query->onlyTrashed(); },
-                    function ($query) { $query->withoutTrashed(); },
-                );
-            });
+            $query->whereDate('created_at', '>=', $value->first())
+                ->whereDate('created_at', '<=', $value->last());
         });
     }
 
