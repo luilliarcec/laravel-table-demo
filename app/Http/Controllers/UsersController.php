@@ -11,7 +11,7 @@ class UsersController extends Controller
     public function __invoke(UserIndexQuery $query, BladeTable $table)
     {
         // bs-users - tw-users
-        return view('tw-users', [
+        return view('bs-users', [
             'users' => $query->paginate(),
             'table' => $table
                 ->addFilter('state', 'Status', Filter::SELECT, [
