@@ -32,8 +32,12 @@ class UsersController extends Controller
                 ->addFilter('name', 'Name', Filter::TEXT)
                 ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
                 ->addFilter('email_verified_at_range', 'Email Verified at range', Filter::DATE_RANGE)
-                ->addColumn('name', 'Name')
+                ->addColumn('email', 'Email')
+                ->addColumn('language_developer', 'Language developer')
                 ->addColumn('email_verified_at', 'Email verified at')
+                ->addColumn('deleted_at', 'Deleted?')
+                ->addColumn('created_at', 'Created at')
+                ->addColumn('updated_at', 'Updated at')
                 ->build()
         ]);
     }
