@@ -2,5 +2,5 @@
 
 return [
     /** tailwind  / bootstrap4 / bootstrap5 */
-    'theme' => 'bootstrap5'
+    'theme' => 'bootstrap4'
 ];
