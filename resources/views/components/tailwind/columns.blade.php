@@ -29,7 +29,7 @@
                                         name="columns[]"
                                         id="column_{{ $key }}"
                                         value="{{ $key }}"
-                                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer"
+                                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-gray-200 hover:border-gray-200 appearance-none cursor-pointer"
                                         {{ $column->enabled ? 'checked' : '' }}
                                     />
 

@@ -10,18 +10,14 @@
             background-color: #203c70;
         }
 
-        input[type='checkbox'].toggle-checkbox:hover {
+        input[type='checkbox'].toggle-checkbox:checked:focus,
+        input[type='checkbox'].toggle-checkbox:checked:hover {
             border-color: #203c70;
             background-color: #fff;
         }
 
         input[type='checkbox'].toggle-checkbox:focus {
             box-shadow: none;
-        }
-
-        input[type='checkbox'].toggle-checkbox:checked:focus {
-            border-color: #203c70;
-            background-color: #fff;
         }
     </style>
 @endif
