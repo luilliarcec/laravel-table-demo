@@ -30,20 +30,36 @@
             >
                 <x-slot name="head">
                     <tr>
-                        <x-table::th class="border-gray-200" column-key="id" :show="true">
+                        <x-table::th column-key="id" class="border-gray-200" :show="true">
                             Id
                         </x-table::th>
 
-                        <x-table::th column-key="name" class="border-gray-200" :sortable="true">
+                        <x-table::th column-key="name" class="border-gray-200" :sortable="true" :show="true">
                             Name
                         </x-table::th>
 
-                        <x-table::th column-key="email" class="border-gray-200" :sortable="true" :show="true">
+                        <x-table::th column-key="email" class="border-gray-200" :sortable="true">
                             Email
                         </x-table::th>
 
-                        <x-table::th column-key="email_verified_at" class="border-gray-200">
+                        <x-table::th column-key="language_developer" class="border-gray-200" :sortable="true">
+                            Language developer
+                        </x-table::th>
+
+                        <x-table::th column-key="email_verified_at" class="border-gray-200" :sortable="true">
                             Email verified at
+                        </x-table::th>
+
+                        <x-table::th column-key="deleted_at" class="border-gray-200" :sortable="true">
+                            Deleted?
+                        </x-table::th>
+
+                        <x-table::th column-key="created_at" class="border-gray-200" :sortable="true">
+                            Created at
+                        </x-table::th>
+
+                        <x-table::th column-key="updated_at" class="border-gray-200" :sortable="true">
+                            Updated at
                         </x-table::th>
                     </tr>
                 </x-slot>
@@ -51,20 +67,48 @@
                 <x-slot name="body">
                     @foreach($users as $user)
                         <tr>
-                            <x-table::td scope="row" column-key="id" :show="true">
+                            <x-table::th scope="row" column-key="id" :show="true">
                                 {{ $user->id }}
-                            </x-table::td>
+                            </x-table::th>
 
-                            <x-table::td column-key="name">
+                            <x-table::td column-key="name" :show="true">
                                 {{ $user->name }}
                             </x-table::td>
 
-                            <x-table::td column-key="email" :show="true">
+                            <x-table::td column-key="email">
                                 {{ $user->email }}
+                            </x-table::td>
+
+                            <x-table::td column-key="language_developer">
+                                {{ $user->language_developer }}
                             </x-table::td>
 
                             <x-table::td column-key="email_verified_at">
                                 {{ $user->email_verified_at->isoFormat('ll') }}
+                            </x-table::td>
+
+                            <x-table::td column-key="deleted_at">
+                                @if ($user->trashed())
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"
+                                    >
+                                        Deleted
+                                    </span>
+                                @else
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800"
+                                    >
+                                        Active
+                                    </span>
+                                @endif
+                            </x-table::td>
+
+                            <x-table::td column-key="created_at">
+                                {{ $user->created_at->isoFormat('ll') }}
+                            </x-table::td>
+
+                            <x-table::td column-key="updated_at">
+                                {{ $user->updated_at->isoFormat('ll') }}
                             </x-table::td>
                         </tr>
                     @endforeach
