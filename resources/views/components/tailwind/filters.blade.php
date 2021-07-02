@@ -10,10 +10,14 @@
         </button>
 
         <div class="absolute z-10">
-            <div id="filters-dropdown" class="hidden mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div id="filters-dropdown"
+                 class="hidden mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 @foreach($filters as $filter)
                     <div>
-                        <h3 class="text-xs uppercase tracking-wide bg-gray-100 p-3">{{ $filter->label }}</h3>
+                        <h3 class="text-xs uppercase tracking-wide bg-gray-100 p-3">
+                            {{ $filter->label }}
+                        </h3>
+
                         <div class="p-2">
                             @if($filter->type === \App\Support\Filter::SELECT)
                                 <x-filters.select :filter="$filter"/>
@@ -31,6 +35,19 @@
                         </div>
                     </div>
                 @endforeach
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-wide bg-gray-100 p-3">
+                        {{ __('Filters') }}
+                    </h3>
+
+                    <div class="p-2">
+                        <a class="text-gray-400 decoration-none px-2"
+                           href="{{ request()->url() }}">
+                            {{ __('Clear filters') }}
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
