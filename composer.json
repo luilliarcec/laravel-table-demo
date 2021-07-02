@@ -4,6 +4,12 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../packages/laravel-blade-tables"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
@@ -11,7 +17,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "spatie/laravel-query-builder": "^3.4"
+        "spatie/laravel-query-builder": "^3.4",
+        "luilliarcec/laravel-table": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
