@@ -53,7 +53,6 @@ class UsersController extends Controller
             ->addColumn('email_verified_at', 'Email verified at')
             ->addColumn('deleted_at', 'Deleted?')
             ->addColumn('created_at', 'Created at')
-            ->addColumn('updated_at', 'Updated at')
-            ->build();
+            ->addColumn('updated_at', 'Updated at');
     }
 }
