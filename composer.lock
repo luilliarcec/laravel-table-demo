@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acf83126ded02134b44b255d1e8bfee5",
+    "content-hash": "d5ca2162d63b1092aa884748651e5dbb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -863,16 +863,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.49.0",
+            "version": "v8.49.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "855a919d08b45f93cb3cf709736528c3d1531884"
+                "reference": "62aee1bfeefd82f160c7aa3b4c63cb2f053215c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/855a919d08b45f93cb3cf709736528c3d1531884",
-                "reference": "855a919d08b45f93cb3cf709736528c3d1531884",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/62aee1bfeefd82f160c7aa3b4c63cb2f053215c0",
+                "reference": "62aee1bfeefd82f160c7aa3b4c63cb2f053215c0",
                 "shasum": ""
             },
             "require": {
@@ -1027,7 +1027,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-29T13:50:21+00:00"
+            "time": "2021-07-02T16:50:12+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1350,16 +1350,16 @@
         },
         {
             "name": "luilliarcec/laravel-table",
-            "version": "dev-main",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/luilliarcec/laravel-table.git",
-                "reference": "7d19cc857547ae79f797c10c3fcc57b6ff42110e"
+                "reference": "e1055a45cf2130a20ff16adf285ca9582ca3c9db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/luilliarcec/laravel-table/zipball/7d19cc857547ae79f797c10c3fcc57b6ff42110e",
-                "reference": "7d19cc857547ae79f797c10c3fcc57b6ff42110e",
+                "url": "https://api.github.com/repos/luilliarcec/laravel-table/zipball/e1055a45cf2130a20ff16adf285ca9582ca3c9db",
+                "reference": "e1055a45cf2130a20ff16adf285ca9582ca3c9db",
                 "shasum": ""
             },
             "require": {
@@ -1371,7 +1371,6 @@
                 "orchestra/testbench": "^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1409,9 +1408,9 @@
             ],
             "support": {
                 "issues": "https://github.com/luilliarcec/laravel-table/issues",
-                "source": "https://github.com/luilliarcec/laravel-table/tree/main"
+                "source": "https://github.com/luilliarcec/laravel-table/tree/0.0.1"
             },
-            "time": "2021-07-02T12:59:54+00:00"
+            "time": "2021-07-05T00:49:06+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1604,16 +1603,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.10.5",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "4432ba399e47c66624bc73c8c0f811e5c109576f"
+                "reference": "fe14cf3672a149364fb66dfe11bf6549af899f94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4432ba399e47c66624bc73c8c0f811e5c109576f",
-                "reference": "4432ba399e47c66624bc73c8c0f811e5c109576f",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fe14cf3672a149364fb66dfe11bf6549af899f94",
+                "reference": "fe14cf3672a149364fb66dfe11bf6549af899f94",
                 "shasum": ""
             },
             "require": {
@@ -1654,9 +1653,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.5"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.11.0"
             },
-            "time": "2021-05-03T19:11:20+00:00"
+            "time": "2021-07-03T13:36:55+00:00"
         },
         {
             "name": "opis/closure",
