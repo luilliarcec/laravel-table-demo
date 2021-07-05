@@ -9,6 +9,17 @@ use Luilliarcec\LaravelTable\Support\Filter;
 
 class UsersController extends Controller
 {
+    public function bootstrap4(UserIndexQuery $query)
+    {
+        config()->set('table.theme', 'bootstrap4');
+        Paginator::useBootstrap();
+
+        return view('bs4-users', [
+            'users' => $query->paginate(),
+            'table' => $this->table(new BladeTable)
+        ]);
+    }
+
     public function bootstrap5(UserIndexQuery $query)
     {
         config()->set('table.theme', 'bootstrap5');

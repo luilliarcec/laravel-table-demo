@@ -17,5 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/bootstrap4', [\App\Http\Controllers\UsersController::class, 'bootstrap4']);
 Route::get('/bootstrap5', [\App\Http\Controllers\UsersController::class, 'bootstrap5']);
 Route::get('/tailwind', [\App\Http\Controllers\UsersController::class, 'tailwind']);
