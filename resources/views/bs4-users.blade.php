@@ -23,6 +23,12 @@
 </head>
 <body>
 <div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-right">
+            <a href="/" class="btn btn-secondary"><- Back</a>
+        </div>
+    </div>
+
     <x-table::table
         :meta="$users"
         :table="$table"
