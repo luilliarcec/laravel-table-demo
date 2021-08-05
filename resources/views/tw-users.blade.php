@@ -19,6 +19,8 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
 <div id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-gray-100">
