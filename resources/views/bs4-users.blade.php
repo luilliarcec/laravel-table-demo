@@ -70,7 +70,7 @@
         </x-slot>
 
         <x-slot name="body">
-            @foreach($users as $user)
+            @forelse($users as $user)
                 <tr>
                     <x-table::th scope="row" column-key="id" :show="true">
                         {{ $user->id }}
@@ -108,7 +108,9 @@
                         {{ $user->updated_at->isoFormat('ll') }}
                     </x-table::td>
                 </tr>
-            @endforeach
+            @empty
+                <x-table::empty-table link="/"/>
+            @endforelse
         </x-slot>
     </x-table::table>
 </div>
