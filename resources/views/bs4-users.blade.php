@@ -35,35 +35,35 @@
     >
         <x-slot name="head">
             <tr>
-                <x-table::th column-key="id" class="border-gray-200" :show="true">
+                <x-table::th>
                     Id
                 </x-table::th>
 
-                <x-table::th column-key="name" class="border-gray-200" :sortable="true" :show="true">
+                <x-table::th column-key="name" sortable static>
                     Name
                 </x-table::th>
 
-                <x-table::th column-key="email" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="email" sortable>
                     Email
                 </x-table::th>
 
-                <x-table::th column-key="language_developer" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="language_developer" sortable>
                     Language developer
                 </x-table::th>
 
-                <x-table::th column-key="email_verified_at" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="email_verified_at" sortable>
                     Email verified at
                 </x-table::th>
 
-                <x-table::th column-key="deleted_at" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="deleted_at" sortable>
                     Deleted?
                 </x-table::th>
 
-                <x-table::th column-key="created_at" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="created_at" sortable>
                     Created at
                 </x-table::th>
 
-                <x-table::th column-key="updated_at" class="border-gray-200" :sortable="true">
+                <x-table::th column-key="updated_at" sortable>
                     Updated at
                 </x-table::th>
             </tr>
@@ -72,11 +72,11 @@
         <x-slot name="body">
             @forelse($users as $user)
                 <tr>
-                    <x-table::th scope="row" column-key="id" :show="true">
+                    <x-table::th scope="row">
                         {{ $user->id }}
                     </x-table::th>
 
-                    <x-table::td column-key="name" :show="true">
+                    <x-table::td>
                         {{ $user->name }}
                     </x-table::td>
 
