@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <x-table::styles/>
+    <x-table-styles/>
 
     <!-- Flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -35,70 +35,70 @@
                 </div>
             </div>
 
-            <x-table::table
+            <x-table-table
                 :meta="$users"
                 :table="$table"
             >
                 <x-slot name="head">
                     <tr>
-                        <x-table::th class="border-gray-200">
+                        <x-table-th class="border-gray-200">
                             Id
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="name" class="border-gray-200" sortable static>
+                        <x-table-th column-key="name" class="border-gray-200" sortable static>
                             Name
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="email" class="border-gray-200" sortable>
+                        <x-table-th column-key="email" class="border-gray-200" sortable>
                             Email
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="language_developer" class="border-gray-200" sortable>
+                        <x-table-th column-key="language_developer" class="border-gray-200" sortable>
                             Language developer
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="email_verified_at" class="border-gray-200" sortable>
+                        <x-table-th column-key="email_verified_at" class="border-gray-200" sortable>
                             Email verified at
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="deleted_at" class="border-gray-200" sortable>
+                        <x-table-th column-key="deleted_at" class="border-gray-200" sortable>
                             Deleted?
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="created_at" class="border-gray-200" sortable>
+                        <x-table-th column-key="created_at" class="border-gray-200" sortable>
                             Created at
-                        </x-table::th>
+                        </x-table-th>
 
-                        <x-table::th column-key="updated_at" class="border-gray-200" sortable>
+                        <x-table-th column-key="updated_at" class="border-gray-200" sortable>
                             Updated at
-                        </x-table::th>
+                        </x-table-th>
                     </tr>
                 </x-slot>
 
                 <x-slot name="body">
                     @forelse($users as $user)
                         <tr>
-                            <x-table::th scope="row">
+                            <x-table-th scope="row">
                                 {{ $user->id }}
-                            </x-table::th>
+                            </x-table-th>
 
-                            <x-table::td>
+                            <x-table-td>
                                 {{ $user->name }}
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="email">
+                            <x-table-td column-key="email">
                                 {{ $user->email }}
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="language_developer">
+                            <x-table-td column-key="language_developer">
                                 {{ $user->language_developer }}
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="email_verified_at">
+                            <x-table-td column-key="email_verified_at">
                                 {{ $user->email_verified_at->isoFormat('ll') }}
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="deleted_at">
+                            <x-table-td column-key="deleted_at">
                                 @if ($user->trashed())
                                     <span
                                         class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"
@@ -112,28 +112,28 @@
                                         Active
                                     </span>
                                 @endif
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="created_at">
+                            <x-table-td column-key="created_at">
                                 {{ $user->created_at->isoFormat('ll') }}
-                            </x-table::td>
+                            </x-table-td>
 
-                            <x-table::td column-key="updated_at">
+                            <x-table-td column-key="updated_at">
                                 {{ $user->updated_at->isoFormat('ll') }}
-                            </x-table::td>
+                            </x-table-td>
                         </tr>
                     @empty
-                        <x-table::empty-table link="/"/>
+                        <x-table-empty-table link="/"/>
                     @endforelse
                 </x-slot>
-            </x-table::table>
+            </x-table-table>
         </div>
     </main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
-<x-table::scripts/>
+<x-table-scripts/>
 <script>
     const dateRanges = document.querySelectorAll('.filter-date-range');
 

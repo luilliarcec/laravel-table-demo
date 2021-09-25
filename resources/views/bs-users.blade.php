@@ -20,7 +20,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    <x-table::styles/>
+    <x-table-styles/>
 </head>
 <body>
 <div class="container mt-5">
@@ -30,90 +30,90 @@
         </div>
     </div>
 
-    <x-table::table
+    <x-table-table
         :meta="$users"
         :table="$table"
     >
         <x-slot name="head">
             <tr>
-                <x-table::th>
+                <x-table-th>
                     Id
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="name" sortable static>
+                <x-table-th column-key="name" sortable static>
                     Name
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="email" sortable>
+                <x-table-th column-key="email" sortable>
                     Email
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="language_developer" sortable>
+                <x-table-th column-key="language_developer" sortable>
                     Language developer
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="email_verified_at" sortable>
+                <x-table-th column-key="email_verified_at" sortable>
                     Email verified at
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="deleted_at" sortable>
+                <x-table-th column-key="deleted_at" sortable>
                     Deleted?
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="created_at" sortable>
+                <x-table-th column-key="created_at" sortable>
                     Created at
-                </x-table::th>
+                </x-table-th>
 
-                <x-table::th column-key="updated_at" sortable>
+                <x-table-th column-key="updated_at" sortable>
                     Updated at
-                </x-table::th>
+                </x-table-th>
             </tr>
         </x-slot>
 
         <x-slot name="body">
             @forelse($users as $user)
                 <tr>
-                    <x-table::th scope="row">
+                    <x-table-th scope="row">
                         {{ $user->id }}
-                    </x-table::th>
+                    </x-table-th>
 
-                    <x-table::td>
+                    <x-table-td>
                         {{ $user->name }}
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="email">
+                    <x-table-td column-key="email">
                         {{ $user->email }}
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="language_developer">
+                    <x-table-td column-key="language_developer">
                         {{ $user->language_developer }}
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="email_verified_at">
+                    <x-table-td column-key="email_verified_at">
                         {{ $user->email_verified_at->isoFormat('ll') }}
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="deleted_at">
+                    <x-table-td column-key="deleted_at">
                         @if ($user->trashed())
                             <span class="badge bg-danger">Deleted</span>
                         @else
                             <span class="badge bg-success">Active</span>
                         @endif
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="created_at">
+                    <x-table-td column-key="created_at">
                         {{ $user->created_at->isoFormat('ll') }}
-                    </x-table::td>
+                    </x-table-td>
 
-                    <x-table::td column-key="updated_at">
+                    <x-table-td column-key="updated_at">
                         {{ $user->updated_at->isoFormat('ll') }}
-                    </x-table::td>
+                    </x-table-td>
                 </tr>
             @empty
-                <x-table::empty-table link="/"/>
+                <x-table-empty-table link="/"/>
             @endforelse
         </x-slot>
-    </x-table::table>
+    </x-table-table>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -122,7 +122,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous">
 </script>
-<x-table::scripts/>
+<x-table-scripts/>
 <script>
     const dateRanges = document.querySelectorAll('.filter-date-range');
 
