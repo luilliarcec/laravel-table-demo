@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Luilliarcec\LaravelTable\Support\Filter;
-use Luilliarcec\LaravelTable\Support\Table;
+use Luilliarcec\LaravelTable\Table;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -92,12 +92,6 @@ class UserIndexQuery extends QueryBuilder
                 'dart' => 'Dart',
             ])
             ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
-            ->addFilter('created_at', 'Created at', Filter::DATE_RANGE)
-            ->addColumn('email', 'Email')
-            ->addColumn('language_developer', 'Language developer')
-            ->addColumn('email_verified_at', 'Email verified at')
-            ->addColumn('deleted_at', 'Deleted?')
-            ->addColumn('created_at', 'Created at')
-            ->addColumn('updated_at', 'Updated at');
+            ->addFilter('created_at', 'Created at', Filter::DATE_RANGE);
     }
 }
