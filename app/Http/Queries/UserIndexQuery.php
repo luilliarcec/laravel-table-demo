@@ -5,7 +5,6 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Luilliarcec\LaravelTable\Support\Filter;
 use Luilliarcec\LaravelTable\Table;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
