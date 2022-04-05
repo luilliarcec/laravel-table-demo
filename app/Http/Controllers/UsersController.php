@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Queries\UserIndexQuery;
 use Illuminate\Pagination\Paginator;
-use Luilliarcec\LaravelTable\Support\BladeTable;
-use Luilliarcec\LaravelTable\Support\Filter;
 
 class UsersController extends Controller
 {
@@ -16,7 +14,7 @@ class UsersController extends Controller
 
         return view('bs4-users', [
             'users' => $query->paginate(),
-            'table' => $this->table(new BladeTable)
+            'table' => $query->table()
         ]);
     }
 
@@ -27,7 +25,7 @@ class UsersController extends Controller
 
         return view('bs-users', [
             'users' => $query->paginate(),
-            'table' => $this->table(new BladeTable)
+            'table' => $query->table()
         ]);
     }
 
@@ -38,32 +36,7 @@ class UsersController extends Controller
 
         return view('tw-users', [
             'users' => $query->paginate(),
-            'table' => $this->table(new BladeTable)
+            'table' => $query->table()
         ]);
-    }
-
-    private function table(BladeTable $table): object
-    {
-        return $table
-            ->addFilter('trashed', 'Trahed', Filter::SELECT, [
-                'without' => 'Only active',
-                'only' => 'Only trashed',
-            ])
-            ->addFilter('name', 'Name', Filter::TEXT)
-            ->addFilter('language_developer', 'Language developer', Filter::CHECKBOX, [
-                'php' => 'PHP',
-                'python' => 'Python',
-                'c-sharp' => 'C-Sharp',
-                'javascript' => 'Javascript',
-                'dart' => 'Dart',
-            ])
-            ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
-            ->addFilter('created_at', 'Created at', Filter::DATE_RANGE)
-            ->addColumn('email', 'Email')
-            ->addColumn('language_developer', 'Language developer')
-            ->addColumn('email_verified_at', 'Email verified at')
-            ->addColumn('deleted_at', 'Deleted?')
-            ->addColumn('created_at', 'Created at')
-            ->addColumn('updated_at', 'Updated at');
     }
 }

@@ -5,14 +5,20 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Luilliarcec\LaravelTable\Support\Filter;
+use Luilliarcec\LaravelTable\Support\Table;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class UserIndexQuery extends QueryBuilder
 {
-    public function __construct(Request $request)
+    private $table;
+
+    public function __construct(Request $request, Table $table)
     {
         parent::__construct(User::withTrashed(), $request);
+
+        $this->table = $table;
 
         $this
             ->allowedFilters([
@@ -68,5 +74,30 @@ class UserIndexQuery extends QueryBuilder
         $paginator->appends(request()->query());
 
         return $paginator;
+    }
+
+    public function table(): Table
+    {
+        return $this->table
+            ->addFilter('trashed', 'Trashed', Filter::SELECT, [
+                'without' => 'Only active',
+                'only' => 'Only trashed',
+            ])
+            ->addFilter('name', 'Name', Filter::TEXT)
+            ->addFilter('language_developer', 'Language developer', Filter::CHECKBOX, [
+                'php' => 'PHP',
+                'python' => 'Python',
+                'c-sharp' => 'C-Sharp',
+                'javascript' => 'Javascript',
+                'dart' => 'Dart',
+            ])
+            ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
+            ->addFilter('created_at', 'Created at', Filter::DATE_RANGE)
+            ->addColumn('email', 'Email')
+            ->addColumn('language_developer', 'Language developer')
+            ->addColumn('email_verified_at', 'Email verified at')
+            ->addColumn('deleted_at', 'Deleted?')
+            ->addColumn('created_at', 'Created at')
+            ->addColumn('updated_at', 'Updated at');
     }
 }
