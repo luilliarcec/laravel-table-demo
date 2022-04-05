@@ -78,20 +78,6 @@ class UserIndexQuery extends QueryBuilder
 
     public function table(): Table
     {
-        return $this->table
-            ->addFilter('trashed', 'Trashed', Filter::SELECT, [
-                'without' => 'Only active',
-                'only' => 'Only trashed',
-            ])
-            ->addFilter('name', 'Name', Filter::TEXT)
-            ->addFilter('language_developer', 'Language developer', Filter::CHECKBOX, [
-                'php' => 'PHP',
-                'python' => 'Python',
-                'c-sharp' => 'C-Sharp',
-                'javascript' => 'Javascript',
-                'dart' => 'Dart',
-            ])
-            ->addFilter('email_verified_at', 'Email Verified at', Filter::DATE)
-            ->addFilter('created_at', 'Created at', Filter::DATE_RANGE);
+        return $this->table;
     }
 }
