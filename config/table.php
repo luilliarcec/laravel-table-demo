@@ -3,8 +3,15 @@
 use Luilliarcec\LaravelTable\View\Components;
 
 return [
-    /** tailwind  / bootstrap4 / bootstrap5 */
-    'theme' => 'bootstrap5',
+    'date_format' => 'M j, Y',
+    'date_time_format' => 'M j, Y H:i:s',
+    'time_format' => 'H:i:s',
+
+    'layout' => [
+        'action_alignment' => 'right',
+    ],
+
+    'dark_mode' => false,
 
     'components' => [
         // Filters
