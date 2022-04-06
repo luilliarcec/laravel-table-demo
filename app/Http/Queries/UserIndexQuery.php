@@ -5,19 +5,16 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Luilliarcec\LaravelTable\Columns\TextColumn;
 use Luilliarcec\LaravelTable\Table;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class UserIndexQuery extends QueryBuilder
 {
-    private $table;
-
-    public function __construct(Request $request, Table $table)
+    public function __construct(Request $request)
     {
         parent::__construct(User::withTrashed(), $request);
-
-        $this->table = $table;
 
         $this
             ->allowedFilters([
@@ -66,8 +63,12 @@ class UserIndexQuery extends QueryBuilder
         });
     }
 
-    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): \Illuminate\Contracts\Pagination\LengthAwarePaginator
-    {
+    public function paginate(
+        $perPage = null,
+        $columns = ['*'],
+        $pageName = 'page',
+        $page = null
+    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator {
         $paginator = parent::paginate($perPage, $columns, $pageName, $page);
 
         $paginator->appends(request()->query());
@@ -77,6 +78,14 @@ class UserIndexQuery extends QueryBuilder
 
     public function table(): Table
     {
-        return $this->table;
+        return Table::make($this->paginate())
+            ->columns([
+                TextColumn::make('name')
+                    ->label('Full name'),
+
+                TextColumn::make('email_verified_at')
+                    ->dateTime()
+                    ->label('Email verified at'),
+            ]);
     }
 }

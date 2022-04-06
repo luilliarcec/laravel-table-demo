@@ -13,7 +13,6 @@ class UsersController extends Controller
         Paginator::useTailwind();
 
         return view('tw-users', [
-            'users' => $query->paginate(),
             'table' => $query->table()
         ]);
     }
