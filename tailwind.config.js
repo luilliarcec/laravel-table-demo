@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -17,8 +18,10 @@ module.exports = {
             },
 
             colors: {
-                primary: '#203c70',
-                danger: '#e32c2b',
+                danger: colors.rose,
+                primary: colors.yellow,
+                success: colors.green,
+                warning: colors.amber,
             },
         },
     },
