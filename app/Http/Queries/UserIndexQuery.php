@@ -14,7 +14,7 @@ class UserIndexQuery extends QueryBuilder
 {
     public function __construct(Request $request)
     {
-        parent::__construct(User::withTrashed(), $request);
+        parent::__construct(User::withTrashed()->with(['roles']), $request);
 
         $this
             ->allowedFilters([
@@ -83,6 +83,9 @@ class UserIndexQuery extends QueryBuilder
                 Columns\TextColumn::make('name')
                     ->label('Full name')
                     ->sortable(),
+
+                Columns\TagsColumn::make('roles.name')
+                    ->label('Role'),
 
                 Columns\TextColumn::make('email_verified_at')
                     ->label('Email verified at')
