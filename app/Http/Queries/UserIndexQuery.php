@@ -14,7 +14,7 @@ class UserIndexQuery extends QueryBuilder
 {
     public function __construct(Request $request)
     {
-        parent::__construct(User::withTrashed()->with(['roles']), $request);
+        parent::__construct(User::withTrashed()->with(['roles', 'type']), $request);
 
         $this
             ->allowedFilters([
@@ -68,7 +68,8 @@ class UserIndexQuery extends QueryBuilder
         $columns = ['*'],
         $pageName = 'page',
         $page = null
-    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator {
+    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
         $paginator = parent::paginate($perPage, $columns, $pageName, $page);
 
         $paginator->appends(request()->query());
@@ -86,6 +87,9 @@ class UserIndexQuery extends QueryBuilder
 
                 Columns\TagsColumn::make('roles.name')
                     ->label('Role'),
+
+                Columns\TextColumn::make('type.name')
+                    ->label('Types'),
 
                 Columns\TextColumn::make('email_verified_at')
                     ->label('Email verified at')
