@@ -14,7 +14,7 @@ class RolesFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->colorName(),
+            'name' => $this->faker->colorName(),
             'description' => $this->faker->word(),
         ];
     }
