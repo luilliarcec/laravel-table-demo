@@ -2,6 +2,8 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+    darkMode: 'class',
+
     purge: [
         './node_modules/@protonemedia/inertiajs-tables-laravel-query-builder/**/*.{js,vue}',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',

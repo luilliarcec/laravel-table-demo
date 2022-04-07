@@ -5,7 +5,7 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Luilliarcec\LaravelTable\Columns\TextColumn;
+use Luilliarcec\LaravelTable\Columns;
 use Luilliarcec\LaravelTable\Table;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -80,12 +80,22 @@ class UserIndexQuery extends QueryBuilder
     {
         return Table::make($this->paginate())
             ->columns([
-                TextColumn::make('name')
+                Columns\TextColumn::make('name')
+                    ->sortable()
                     ->label('Full name'),
 
-                TextColumn::make('email_verified_at')
+                Columns\TextColumn::make('email_verified_at')
                     ->dateTime()
+                    ->sortable()
                     ->label('Email verified at'),
+
+                Columns\BadgeColumn::make('language_developer')
+                    ->sortable()
+                    ->label('Programming languages'),
+
+                Columns\BooleanColumn::make('deleted_at')
+                    ->getStateUsing(fn(Columns\BooleanColumn $column, User $record) => !$record->trashed())
+                    ->label('Deleted at'),
             ]);
     }
 }
