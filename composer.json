@@ -20,8 +20,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "spatie/laravel-query-builder": "^3.4",
-        "luilliarcec/laravel-table": "4.x-dev"
+        "luilliarcec/laravel-table": "4.x-dev",
+        "spatie/laravel-query-builder": "^3.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
