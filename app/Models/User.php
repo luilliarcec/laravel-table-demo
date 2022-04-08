@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Type::class);
     }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

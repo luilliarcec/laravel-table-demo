@@ -91,6 +91,9 @@ class UserIndexQuery extends QueryBuilder
                 Columns\TextColumn::make('type.name')
                     ->label('Types'),
 
+                Columns\TextColumn::make('books.title')
+                    ->label('Books'),
+
                 Columns\TextColumn::make('email_verified_at')
                     ->label('Email verified at')
                     ->dateTime()
