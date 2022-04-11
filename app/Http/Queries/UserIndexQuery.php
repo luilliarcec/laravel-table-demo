@@ -14,7 +14,7 @@ class UserIndexQuery extends QueryBuilder
 {
     public function __construct(Request $request)
     {
-        parent::__construct(User::withTrashed(), $request);
+        parent::__construct(User::withTrashed()->with(['roles', 'type']), $request);
 
         $this
             ->allowedFilters([
@@ -68,7 +68,8 @@ class UserIndexQuery extends QueryBuilder
         $columns = ['*'],
         $pageName = 'page',
         $page = null
-    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator {
+    ): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
         $paginator = parent::paginate($perPage, $columns, $pageName, $page);
 
         $paginator->appends(request()->query());
@@ -81,21 +82,36 @@ class UserIndexQuery extends QueryBuilder
         return Table::make($this->paginate())
             ->columns([
                 Columns\TextColumn::make('name')
-                    ->sortable()
-                    ->label('Full name'),
+                    ->label('Full name')
+                    ->sortable(),
+
+                Columns\TagsColumn::make('roles.name')
+                    ->label('Role'),
+
+                Columns\TextColumn::make('type.name')
+                    ->label('Types'),
+
+                Columns\TextColumn::make('books.title')
+                    ->label('Books'),
 
                 Columns\TextColumn::make('email_verified_at')
+                    ->label('Email verified at')
                     ->dateTime()
-                    ->sortable()
-                    ->label('Email verified at'),
+                    ->sortable(),
 
                 Columns\BadgeColumn::make('language_developer')
+                    ->label('Programming languages')
                     ->sortable()
-                    ->label('Programming languages'),
+                    ->colors([
+                        'primary' => 'c-sharp',
+                        'danger' => 'dart',
+                        'warning' => 'javascript',
+                        'success' => 'python',
+                    ]),
 
                 Columns\BooleanColumn::make('deleted_at')
-                    ->getStateUsing(fn(Columns\BooleanColumn $column, User $record) => !$record->trashed())
-                    ->label('Deleted at'),
+                    ->label('Deleted at')
+                    ->getStateUsing(fn(Columns\BooleanColumn $column, User $record) => !$record->trashed()),
             ]);
     }
 }
