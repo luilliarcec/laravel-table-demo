@@ -1539,7 +1539,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "e1a034981c841de5917eeaacbb2f6b031f73f389"
+                "reference": "3e4068c6eb003c2cdb360ef814db27e39e539e81"
             },
             "require": {
                 "laravel/framework": "^9.0",
