@@ -5,6 +5,7 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Luilliarcec\LaravelTable\Queries\QueryBuilder;
+use Luilliarcec\LaravelTable\Table;
 
 class UserIndexQuery extends QueryBuilder
 {
@@ -15,6 +16,6 @@ class UserIndexQuery extends QueryBuilder
 
     public function table(): mixed
     {
-        return 'TABLA';
+        return Table::make('users');
     }
 }
