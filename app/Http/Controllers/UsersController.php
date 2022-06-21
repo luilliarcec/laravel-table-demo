@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Queries\UserIndexQuery;
-use Illuminate\Pagination\Paginator;
-use Luilliarcec\LaravelTable\Support\BladeTable;
-use Luilliarcec\LaravelTable\Support\Filter;
 
 class UsersController extends Controller
 {
