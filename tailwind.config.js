@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
     purge: [
@@ -17,8 +18,10 @@ module.exports = {
             },
 
             colors: {
-                primary: '#203c70',
-                danger: '#e32c2b',
+                danger: colors.rose,
+                primary: colors.blue,
+                success: colors.green,
+                warning: colors.yellow,
             },
         },
     },
