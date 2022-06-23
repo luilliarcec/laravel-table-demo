@@ -1754,7 +1754,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "dd8e0be37c0cf274e1944985ec5aed476655fa7f"
+                "reference": "4032723360b13a9483ea5aaaa31c179dd2361be6"
             },
             "require": {
                 "laravel/framework": "^9.0",

@@ -44,16 +44,6 @@
 <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
 <x-tables::scripts/>
 <script>
-    const dateRanges = document.querySelectorAll('.filter-date-range');
-
-    dateRanges.forEach(e => flatpickr(e, {
-        mode: 'range'
-    }));
-
-    const dates = document.querySelectorAll('.filter-date');
-
-    dates.forEach(e => flatpickr(e))
-
     localStorage.theme = 'dark'
 
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
