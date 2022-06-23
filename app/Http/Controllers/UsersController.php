@@ -9,7 +9,7 @@ class UsersController extends Controller
     public function __invoke(UserIndexQuery $query)
     {
         return view('index', [
-            'table' => $query->table()
+            'table' => $query->toPaginate()
         ]);
     }
 }
