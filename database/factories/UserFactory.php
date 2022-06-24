@@ -28,7 +28,10 @@ class UserFactory extends Factory
             'email_verified_at' => $this->faker->dateTimeBetween('-2 years'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'language_developer' => $this->faker->randomElement(['php', 'python', 'c-sharp', 'javascript', 'dart']),
+            'language_developer' => implode(
+                ',',
+                $this->faker->randomElements(['php', 'python', 'c-sharp', 'javascript', 'dart'])
+            ),
             'salary' => $this->faker->randomFloat(2, 1_200, 12_000),
             'home_office' => $this->faker->boolean(),
             'created_at' => $this->faker->dateTimeBetween('-2 years'),
