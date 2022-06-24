@@ -39,7 +39,8 @@ class UserIndexQuery extends QueryBuilder
 
                 TextColumn::make('name')
                     ->label('Name')
-                    ->url(fn(User $record) => "https://ui-avatars.com/api/?name={$record->name}", true)
+                    ->url(fn(User $record) => "https://ui-avatars.com/api/?name={$record->name}")
+                    ->openUrlInNewTab()
                     ->extraAttributes(['class' => 'whitespace-nowrap'])
                     ->sortable(),
 
