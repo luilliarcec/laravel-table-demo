@@ -35,6 +35,7 @@ class UserIndexQuery extends QueryBuilder
             ->searchable()
             ->columns([
                 TextColumn::make('id')
+                    ->visibleFrom('lg')
                     ->sortable(),
 
                 TextColumn::make('name')
@@ -48,6 +49,8 @@ class UserIndexQuery extends QueryBuilder
                     ->label('Email address'),
 
                 TextColumn::make('salary')
+                    ->default(0)
+                    ->alignRight()
                     ->money(shouldConvert: true),
 
                 BooleanColumn::make('home_office')
