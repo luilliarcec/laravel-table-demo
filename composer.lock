@@ -1822,7 +1822,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "eafc66fbbc4c4cfd0583edd4644545dc25762319"
+                "reference": "3ead65302c0bac022b5d345971898f8a2c898f32"
             },
             "require": {
                 "akaunting/laravel-money": "^3.0",
@@ -1851,11 +1851,6 @@
             "autoload": {
                 "psr-4": {
                     "Luilliarcec\\LaravelTable\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Luilliarcec\\LaravelTable\\Tests\\": "tests"
                 }
             },
             "scripts": {

@@ -11,6 +11,7 @@ use Luilliarcec\LaravelTable\Columns\TagsColumn;
 use Luilliarcec\LaravelTable\Columns\TextColumn;
 use Luilliarcec\LaravelTable\Filters\DateTimePickerFilter;
 use Luilliarcec\LaravelTable\Filters\Plugins\Flatpickr;
+use Luilliarcec\LaravelTable\Filters\SelectFilter;
 use Luilliarcec\LaravelTable\Filters\TextFilter;
 use Luilliarcec\LaravelTable\Queries\QueryBuilder;
 use Luilliarcec\LaravelTable\Table;
@@ -73,7 +74,13 @@ class UserIndexQuery extends QueryBuilder
                         fn(Flatpickr $flatpickr) => $flatpickr
                             ->maxDate(now())
                             ->mode('range')
-                    )
+                    ),
+                SelectFilter::make('state')
+                    ->placeholder('Only actives')
+                    ->options([
+                        'only' => 'Only deleted',
+                        'with' => 'All',
+                    ]),
             ])
             ->emptyStateActions([
                 Action::make('create')
