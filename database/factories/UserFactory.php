@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'language_developer' => implode(
                 ',',
-                $this->faker->randomElements(['php', 'python', 'c-sharp', 'javascript', 'dart'])
+                $this->faker->randomElements(['php', 'python', 'c-sharp', 'javascript', 'dart'], 3)
             ),
             'salary' => $this->faker->randomFloat(2, 1_200, 12_000),
             'home_office' => $this->faker->boolean(),

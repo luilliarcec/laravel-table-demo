@@ -1822,7 +1822,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "807af9075601b9e4ec8558ea1a3938390359139a"
+                "reference": "eafc66fbbc4c4cfd0583edd4644545dc25762319"
             },
             "require": {
                 "akaunting/laravel-money": "^3.0",

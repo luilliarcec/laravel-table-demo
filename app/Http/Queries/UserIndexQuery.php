@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Luilliarcec\Components\Actions\Action;
 use Luilliarcec\LaravelTable\Columns\BadgeColumn;
 use Luilliarcec\LaravelTable\Columns\BooleanColumn;
+use Luilliarcec\LaravelTable\Columns\TagsColumn;
 use Luilliarcec\LaravelTable\Columns\TextColumn;
 use Luilliarcec\LaravelTable\Filters\DateTimePickerFilter;
 use Luilliarcec\LaravelTable\Filters\Plugins\Flatpickr;
@@ -36,6 +37,7 @@ class UserIndexQuery extends QueryBuilder
                     ->sortable(),
 
                 TextColumn::make('name')
+                    ->extraAttributes(['class' => 'whitespace-nowrap'])
                     ->label('Name')
                     ->sortable(),
 
@@ -48,6 +50,9 @@ class UserIndexQuery extends QueryBuilder
                 BooleanColumn::make('home_office')
                     ->label('Work from office?'),
 
+                TagsColumn::make('language_developer')
+                    ->separator(),
+
                 BadgeColumn::make('deleted_at')
                     ->label('State')
                     ->formatStateUsing(fn($state) => $state !== null ? 'Deleted' : 'Active')
@@ -57,6 +62,7 @@ class UserIndexQuery extends QueryBuilder
                     ]),
 
                 TextColumn::make('created_at')
+                    ->extraAttributes(['class' => 'whitespace-nowrap'])
                     ->label('Created At')
                     ->datetime(),
             ])
