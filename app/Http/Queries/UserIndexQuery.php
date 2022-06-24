@@ -39,6 +39,9 @@ class UserIndexQuery extends QueryBuilder
                 TextColumn::make('email')
                     ->label('Email address'),
 
+                TextColumn::make('salary')
+                    ->money(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->datetime(),
