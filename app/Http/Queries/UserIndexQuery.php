@@ -5,6 +5,7 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Luilliarcec\Components\Actions\Action;
+use Luilliarcec\LaravelTable\Columns\BooleanColumn;
 use Luilliarcec\LaravelTable\Columns\TextColumn;
 use Luilliarcec\LaravelTable\Filters\DateTimePickerFilter;
 use Luilliarcec\LaravelTable\Filters\Plugins\Flatpickr;
@@ -42,6 +43,9 @@ class UserIndexQuery extends QueryBuilder
 
                 TextColumn::make('salary')
                     ->money(shouldConvert: true),
+
+                BooleanColumn::make('home_office')
+                    ->label('Work from office?'),
 
                 TextColumn::make('created_at')
                     ->label('Created At')
