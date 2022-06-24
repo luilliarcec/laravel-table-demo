@@ -20,7 +20,8 @@ class UserIndexQuery extends QueryBuilder
 
         $this
             ->allowedSorts([
-                'name'
+                'id',
+                'name',
             ]);
     }
 
@@ -30,7 +31,7 @@ class UserIndexQuery extends QueryBuilder
             ->searchable()
             ->columns([
                 TextColumn::make('id')
-                    ->label('ID'),
+                    ->sortable(),
 
                 TextColumn::make('name')
                     ->label('Name')
@@ -40,7 +41,7 @@ class UserIndexQuery extends QueryBuilder
                     ->label('Email address'),
 
                 TextColumn::make('salary')
-                    ->money(),
+                    ->money(shouldConvert: true),
 
                 TextColumn::make('created_at')
                     ->label('Created At')
