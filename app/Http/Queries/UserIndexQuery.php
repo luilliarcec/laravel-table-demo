@@ -5,6 +5,7 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Luilliarcec\Components\Actions\Action;
+use Luilliarcec\LaravelTable\Columns\BadgeColumn;
 use Luilliarcec\LaravelTable\Columns\BooleanColumn;
 use Luilliarcec\LaravelTable\Columns\TextColumn;
 use Luilliarcec\LaravelTable\Filters\DateTimePickerFilter;
@@ -46,6 +47,13 @@ class UserIndexQuery extends QueryBuilder
 
                 BooleanColumn::make('home_office')
                     ->label('Work from office?'),
+
+                BadgeColumn::make('deleted_at')
+                    ->formatStateUsing(fn($state) => $state !== null ? 'Eliminado' : 'Activo')
+                    ->colors([
+                        'danger' => fn($state) => $state !== null,
+                        'success' => fn($state) => $state === null
+                    ]),
 
                 TextColumn::make('created_at')
                     ->label('Created At')
