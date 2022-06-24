@@ -49,7 +49,8 @@ class UserIndexQuery extends QueryBuilder
                     ->label('Work from office?'),
 
                 BadgeColumn::make('deleted_at')
-                    ->formatStateUsing(fn($state) => $state !== null ? 'Eliminado' : 'Activo')
+                    ->label('State')
+                    ->formatStateUsing(fn($state) => $state !== null ? 'Deleted' : 'Active')
                     ->colors([
                         'danger' => fn($state) => $state !== null,
                         'success' => fn($state) => $state === null
