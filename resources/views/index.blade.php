@@ -29,7 +29,8 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-<div x-cloak x-data="{}" id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-gray-100 dark:bg-gray-800">
+<div x-cloak x-data="{}" id="page-container"
+     class="flex flex-col mx-auto w-full min-h-screen bg-gray-100 dark:bg-gray-800">
     <main id="page-content" class="flex flex-auto flex-col max-w-full pt-16">
         <div class="max-w-10xl mx-auto p-4 pt-0 lg:p-10 lg:pt-0 w-full">
             <div class="flex-row mb-4">
@@ -58,5 +59,6 @@
         document.documentElement.classList.remove('dark')
     }
 </script>
+<script src="{{ asset('js/app.js') }}"/>
 </body>
 </html>
