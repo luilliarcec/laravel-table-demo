@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dark_mode' => true,
+    'dark_mode' => config('components.dark_mode'),
 
     'layout' => [
         'action_alignment' => 'right',
