@@ -73,6 +73,14 @@ class UserIndexQuery extends QueryBuilder
                     ->label('Created At')
                     ->datetime(),
             ])
+            ->actions([
+                Action::make('show')
+                    ->iconButton()
+                    ->url(fn(User $record) => route('users.show', $record))
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-s-eye')
+                    ->size('lg')
+            ])
             ->filters([
                 TextFilter::make('name'),
                 DateTimePickerFilter::make('created_at')

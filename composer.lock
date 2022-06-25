@@ -1757,12 +1757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/luilliarcec/laravel-components.git",
-                "reference": "e360c458e1c9b3410490fb9779b8e47901ce8055"
+                "reference": "bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/luilliarcec/laravel-components/zipball/e360c458e1c9b3410490fb9779b8e47901ce8055",
-                "reference": "e360c458e1c9b3410490fb9779b8e47901ce8055",
+                "url": "https://api.github.com/repos/luilliarcec/laravel-components/zipball/bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1",
+                "reference": "bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1",
                 "shasum": ""
             },
             "require": {
@@ -1814,7 +1814,7 @@
                 "issues": "https://github.com/luilliarcec/laravel-components/issues",
                 "source": "https://github.com/luilliarcec/laravel-components/tree/main"
             },
-            "time": "2022-06-23T15:10:59+00:00"
+            "time": "2022-06-25T15:34:11+00:00"
         },
         {
             "name": "luilliarcec/laravel-table",
@@ -1822,7 +1822,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "21bb51dbea325078f0d4833390622f73126d4f87"
+                "reference": "89dcd43b3e6dc8c3bd90778c5bd49446a4dd7280"
             },
             "require": {
                 "akaunting/laravel-money": "^3.0",
