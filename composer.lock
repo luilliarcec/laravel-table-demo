@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19fd9b6c158370cbb5400a5adf0b8ab0",
+    "content-hash": "862298e329ef01801f741f36630e5017",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1754,16 +1754,10 @@
         {
             "name": "luilliarcec/laravel-components",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/luilliarcec/laravel-components.git",
-                "reference": "bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/luilliarcec/laravel-components/zipball/bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1",
-                "reference": "bc10b3f6a5f2040d472e418a57f2d9178d9d0ab1",
-                "shasum": ""
+                "type": "path",
+                "url": "../laravel-components",
+                "reference": "211e697d2f3b50083cd65a10398b3c907acd33af"
             },
             "require": {
                 "blade-ui-kit/blade-heroicons": "^1.3",
@@ -1777,7 +1771,6 @@
                 "orchestra/testbench": "^7.0",
                 "phpunit/phpunit": "^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1791,7 +1784,19 @@
                     "Luilliarcec\\Components\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Luilliarcec\\Components\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1810,11 +1815,9 @@
                 "laravel",
                 "tailwind"
             ],
-            "support": {
-                "issues": "https://github.com/luilliarcec/laravel-components/issues",
-                "source": "https://github.com/luilliarcec/laravel-components/tree/main"
-            },
-            "time": "2022-06-25T15:34:11+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "luilliarcec/laravel-table",
@@ -1822,7 +1825,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-table",
-                "reference": "89dcd43b3e6dc8c3bd90778c5bd49446a4dd7280"
+                "reference": "ff8756750f0d363327a9b12bdc65de6bbb594d4e"
             },
             "require": {
                 "akaunting/laravel-money": "^3.0",

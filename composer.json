@@ -11,6 +11,10 @@
         {
             "type": "path",
             "url": "../laravel-table"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-components"
         }
     ],
     "require": {
