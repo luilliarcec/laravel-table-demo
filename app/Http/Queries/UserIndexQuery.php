@@ -5,6 +5,7 @@ namespace App\Http\Queries;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Luilliarcec\Components\Actions\Action;
+use Luilliarcec\Components\Actions\Confirmation;
 use Luilliarcec\LaravelTable\Columns\BadgeColumn;
 use Luilliarcec\LaravelTable\Columns\BooleanColumn;
 use Luilliarcec\LaravelTable\Columns\TagsColumn;
@@ -79,7 +80,17 @@ class UserIndexQuery extends QueryBuilder
                     ->url(fn(User $record) => route('users.show', $record))
                     ->openUrlInNewTab()
                     ->icon('heroicon-s-eye')
-                    ->size('lg')
+                    ->size('md'),
+                Action::make('delete')
+                    ->iconButton()
+                    ->url(fn(User $record) => route('users.destroy', $record))
+                    ->confirmation(
+                        fn(Confirmation $confirmation) => $confirmation
+                            ->method('delete')
+                            ->title('Are you sure?')
+                    )
+                    ->icon('heroicon-s-trash')
+                    ->size('md'),
             ])
             ->filters([
                 TextFilter::make('name'),

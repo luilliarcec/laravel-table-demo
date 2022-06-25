@@ -39,6 +39,8 @@
             {{ $table }}
         </div>
     </main>
+
+    <x-components::confirm/>
 </div>
 
 <x-tables::scripts/>

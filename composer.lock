@@ -1757,7 +1757,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-components",
-                "reference": "211e697d2f3b50083cd65a10398b3c907acd33af"
+                "reference": "b2a34725e45236737f8c9160cc21bf940d291893"
             },
             "require": {
                 "blade-ui-kit/blade-heroicons": "^1.3",
