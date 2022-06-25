@@ -3,3 +3,4 @@
 @import 'tailwindcss/utilities';
 
 @import 'tippy.js/dist/tippy.css';
+@import "../../vendor/luilliarcec/laravel-table/resources/css/flatpickr.css";

@@ -46,6 +46,7 @@ class UserIndexQuery extends QueryBuilder
                     ->sortable(),
 
                 TextColumn::make('email')
+                    ->tooltip('This is email')
                     ->label('Email address'),
 
                 TextColumn::make('salary')

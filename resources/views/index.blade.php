@@ -8,25 +8,19 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <x-tables::styles/>
 
-    <!-- Flatpickr -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="flatpickr/dist/themes/dark.css">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <x-tables::styles/>
 
     <style>
         body {
             font-family: 'Nunito', sans-serif;
         }
     </style>
-
-    <style>
-        [x-cloak] {
-            display: none
-        }
-    </style>
-
-    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
 <div x-cloak x-data="{}" id="page-container"
@@ -47,18 +41,7 @@
     </main>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
 <x-tables::scripts/>
-<script>
-    localStorage.theme = 'dark'
-
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-</script>
 <script src="{{ asset('js/app.js') }}"/>
 </body>
 </html>

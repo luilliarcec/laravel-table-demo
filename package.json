@@ -21,7 +21,9 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.5",
         "@ryangjchandler/alpine-tooltip": "^1.2.0",
+        "flatpickr": "^4.6.13",
         "tippy.js": "^6.3.7"
     }
 }
