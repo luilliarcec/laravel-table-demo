@@ -10,11 +10,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../laravel-table"
+            "url": "../packages/laravel-table"
         },
         {
             "type": "path",
-            "url": "../laravel-components"
+            "url": "../packages/laravel-components"
         }
     ],
     "require": {
