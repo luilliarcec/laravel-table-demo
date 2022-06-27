@@ -22,6 +22,10 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+
+    <script>
+        localStorage.theme = 'white'
+    </script>
 </head>
 <body>
 <div x-cloak x-data="{}" id="page-container"

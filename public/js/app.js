@@ -8233,7 +8233,6 @@ window.flatpickr.localize((flatpickr_dist_l10n_es_js__WEBPACK_IMPORTED_MODULE_3_
 window.tippy = tippy_js__WEBPACK_IMPORTED_MODULE_5__["default"];
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 window.Alpine.start();
-localStorage.theme = 'dark';
 
 if (localStorage.theme === 'dark' || !('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   document.documentElement.classList.add('dark');
