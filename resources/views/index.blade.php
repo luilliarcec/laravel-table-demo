@@ -14,8 +14,9 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
     <x-tables::styles/>
+
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <style>
         body {
@@ -49,6 +50,5 @@
 </div>
 
 <x-tables::scripts/>
-<script src="{{ asset('js/app.js') }}"/>
 </body>
 </html>
