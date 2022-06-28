@@ -14,107 +14,132 @@ use Luilliarcec\LaravelTable\Filters\DateTimePickerFilter;
 use Luilliarcec\LaravelTable\Filters\Plugins\Flatpickr;
 use Luilliarcec\LaravelTable\Filters\SelectFilter;
 use Luilliarcec\LaravelTable\Filters\TextFilter;
+use Luilliarcec\LaravelTable\Queries\Filters\DateRangeFilter;
 use Luilliarcec\LaravelTable\Queries\QueryBuilder;
-use Luilliarcec\LaravelTable\Table;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class UserIndexQuery extends QueryBuilder
 {
     public function __construct(Request $request)
     {
-        parent::__construct(User::withTrashed(), $request);
-
-        $this
-            ->allowedSorts([
-                'id',
-                'name',
-            ]);
+        parent::__construct(User::query(), $request);
     }
 
-    public function table(): Table
+    protected function getAllowedFilters(): array
     {
-        return Table::make('users')
-            ->columns([
-                TextColumn::make('id')
-                    ->visibleFrom('lg')
-                    ->sortable(),
+        return array_merge(
+            parent::getAllowedFilters(), [
+                'name',
+                AllowedFilter::custom('created_at', new DateRangeFilter()),
+                AllowedFilter::trashed('state', 'deleted_at'),
+            ]
+        );
+    }
 
-                TextColumn::make('name')
-                    ->label('Name')
-                    ->url(fn(User $record) => "https://ui-avatars.com/api/?name={$record->name}")
-                    ->openUrlInNewTab()
-                    ->extraAttributes(['class' => 'whitespace-nowrap'])
-                    ->searchable()
-                    ->sortable(),
+    protected function tableName(): string
+    {
+        return 'users';
+    }
 
-                TextColumn::make('email')
-                    ->searchable()
-                    ->tooltip('This is email')
-                    ->label('Email address'),
+    protected function tableColumns(): array
+    {
+        return [
+            TextColumn::make('id')
+                ->visibleFrom('lg')
+                ->sortable(),
 
-                TextColumn::make('salary')
-                    ->default(0)
-                    ->alignRight()
-                    ->money(shouldConvert: true),
+            TextColumn::make('name')
+                ->label('Name')
+                ->url(fn(User $record) => "https://ui-avatars.com/api/?name={$record->name}")
+                ->openUrlInNewTab()
+                ->extraAttributes(['class' => 'whitespace-nowrap'])
+                ->searchable()
+                ->sortable(),
 
-                BooleanColumn::make('home_office')
-                    ->label('Work from office?'),
+            TextColumn::make('email')
+                ->searchable()
+                ->tooltip('This is email')
+                ->label('Email address'),
 
-                TagsColumn::make('language_developer')
-                    ->separator(),
+            TextColumn::make('salary')
+                ->default(0)
+                ->alignRight()
+                ->money(shouldConvert: true),
 
-                BadgeColumn::make('deleted_at')
-                    ->label('State')
-                    ->formatStateUsing(fn($state) => $state !== null ? 'Deleted' : 'Active')
-                    ->colors([
-                        'danger' => fn($state) => $state !== null,
-                        'success' => fn($state) => $state === null
-                    ]),
+            BooleanColumn::make('home_office')
+                ->label('Work from office?'),
 
-                TextColumn::make('created_at')
-                    ->extraAttributes(['class' => 'whitespace-nowrap'])
-                    ->label('Created At')
-                    ->datetime(),
-            ])
-            ->actions([
-                Action::make('show')
-                    ->iconButton()
-                    ->url(fn(User $record) => route('users.show', $record))
-                    ->openUrlInNewTab()
-                    ->icon('heroicon-s-eye')
-                    ->size('md'),
-                Action::make('delete')
-                    ->iconButton()
-                    ->url(fn(User $record) => route('users.destroy', $record))
-                    ->confirmation(
-                        fn(Confirmation $confirmation) => $confirmation
-                            ->method('delete')
-                            ->title('Are you sure?')
-                    )
-                    ->icon('heroicon-s-trash')
-                    ->size('md'),
-            ])
-            ->filters([
-                TextFilter::make('name'),
-                DateTimePickerFilter::make('created_at')
-                    ->flatpickr(
-                        fn(Flatpickr $flatpickr) => $flatpickr
-                            ->maxDate(now())
-                            ->mode('range')
-                    ),
-                SelectFilter::make('state')
-                    ->placeholder('Only actives')
-                    ->options([
-                        'only' => 'Only deleted',
-                        'with' => 'All',
-                    ]),
-            ])
-            ->emptyStateActions([
-                Action::make('create')
-                    ->label('Create new record')
-                    ->button()
-                    ->outlined()
-                    ->url('/')
-                    ->openUrlInNewTab()
-            ]);
+            TagsColumn::make('language_developer')
+                ->separator(),
+
+            BadgeColumn::make('deleted_at')
+                ->label('State')
+                ->formatStateUsing(fn($state) => $state !== null ? 'Deleted' : 'Active')
+                ->colors([
+                    'danger' => fn($state) => $state !== null,
+                    'success' => fn($state) => $state === null
+                ]),
+
+            TextColumn::make('created_at')
+                ->extraAttributes(['class' => 'whitespace-nowrap'])
+                ->label('Created At')
+                ->datetime(),
+        ];
+    }
+
+    protected function tableFilters(): array
+    {
+        return [
+            TextFilter::make('name'),
+
+            DateTimePickerFilter::make('created_at')
+                ->flatpickr(
+                    fn(Flatpickr $flatpickr) => $flatpickr
+                        ->maxDate(now())
+                        ->mode('range')
+                ),
+
+            SelectFilter::make('state')
+                ->placeholder('Only actives')
+                ->options([
+                    'only' => 'Only deleted',
+                    'with' => 'All',
+                ]),
+        ];
+    }
+
+    protected function tableActions(): array
+    {
+        return [
+            Action::make('show')
+                ->iconButton()
+                ->url(fn(User $record) => route('users.show', $record))
+                ->openUrlInNewTab()
+                ->icon('heroicon-s-eye')
+                ->size('md'),
+
+            Action::make('delete')
+                ->iconButton()
+                ->url(fn(User $record) => route('users.destroy', $record))
+                ->confirmation(
+                    fn(Confirmation $confirmation) => $confirmation
+                        ->method('delete')
+                        ->title('Are you sure?')
+                )
+                ->icon('heroicon-s-trash')
+                ->size('md'),
+        ];
+    }
+
+    protected function tableEmptyStateActions(): array
+    {
+        return [
+            Action::make('create')
+                ->label('Create new record')
+                ->button()
+                ->outlined()
+                ->url('/')
+                ->openUrlInNewTab()
+        ];
     }
 }
