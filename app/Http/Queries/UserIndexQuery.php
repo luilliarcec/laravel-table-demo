@@ -33,7 +33,6 @@ class UserIndexQuery extends QueryBuilder
     public function table(): Table
     {
         return Table::make('users')
-            ->searchable()
             ->columns([
                 TextColumn::make('id')
                     ->visibleFrom('lg')
@@ -44,9 +43,11 @@ class UserIndexQuery extends QueryBuilder
                     ->url(fn(User $record) => "https://ui-avatars.com/api/?name={$record->name}")
                     ->openUrlInNewTab()
                     ->extraAttributes(['class' => 'whitespace-nowrap'])
+                    ->searchable()
                     ->sortable(),
 
                 TextColumn::make('email')
+                    ->searchable()
                     ->tooltip('This is email')
                     ->label('Email address'),
 
