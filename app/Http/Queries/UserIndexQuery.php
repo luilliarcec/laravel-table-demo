@@ -119,6 +119,7 @@ class UserIndexQuery extends QueryBuilder
                 ->size('md'),
 
             Action::make('delete')
+                ->hidden(fn (User $record) => $record->trashed())
                 ->iconButton()
                 ->url(fn(User $record) => route('users.destroy', $record))
                 ->confirmation(

@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Http\Controllers\UsersController::class);
-Route::get('/{user}', fn(\App\Models\User $user) => $user)->name('users.show');
-Route::delete('/{user}', fn(\App\Models\User $user) => $user)->name('users.destroy');
+
+Route::get('/{user}', fn(\App\Models\User $user) => $user)
+    ->withTrashed()
+    ->name('users.show');
+
+Route::delete('/{user}', fn(\App\Models\User $user) => $user)
+    ->name('users.destroy');
