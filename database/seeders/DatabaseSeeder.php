@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
                     rand(0, 1),
                     fn (UserFactory $factory) => $factory->deleted()
                 )
-                ->has(Post::factory(), rand(1, 3))
-                ->hasAttached($roles->shuffle()->take(rand(0, 3)), 'roles')
+                ->has(Post::factory()->count(rand(1, 3)))
+                ->hasAttached($roles->shuffle()->take(rand(0, 3)))
                 ->create([
                     'job_id' => $jobs->random()->id
                 ]);
